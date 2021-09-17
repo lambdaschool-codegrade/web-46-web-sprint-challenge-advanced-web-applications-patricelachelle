@@ -4,18 +4,24 @@ import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
 import fetchColorService from '../services/fetchColorService';
 
+
 const BubblePage = () => {
   const [colors, setColors] = useState([]);
   const [editing, setEditing] = useState(false);
 
-  const toggleEdit = (value) => {
-    setEditing(value);
+  const toggleEdit = () => {
+    fetchColorService().then(data => {
+      setEditing(data);
+    })
+    
   };
 
   const saveEdit = (editColor) => {
+    setEditing(editColor)
   };
 
   const deleteColor = (colorToDelete) => {
+    setColors(colorToDelete)
   };
 
   return (
