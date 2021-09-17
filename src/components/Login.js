@@ -21,7 +21,7 @@ function Login() {
     .post(`http://localhost:5000/api/login`, formValues)
     .then((response) => {
       window.localStorage.setItem('token', response.data.payload);
-      push('/color')
+      push('/bubblepage')
     })
     .catch((err) => console.log(err))
   }
@@ -33,7 +33,7 @@ function Login() {
     <div>
       <h1>Welcome to the Bubble App!</h1>
       <div data-testid="loginForm" className="login-form">
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor='username'>Username</label>
           <input
             id='username'
@@ -50,9 +50,10 @@ function Login() {
               value={formValues.password}
               onChange={handleChange}
               />
+              <button id='submit'>Login</button>
         </form>
       </div>
-
+      
       <p id="error" className="error">{error}</p>
     </div>
   );
