@@ -21,6 +21,7 @@ function Login() {
     .post(`http://localhost:5000/api/login`, formValues)
     .then((response) => {
       window.localStorage.setItem('token', response.data.payload);
+      push('/color')
     })
     .catch((err) => console.log(err))
   }
@@ -32,7 +33,24 @@ function Login() {
     <div>
       <h1>Welcome to the Bubble App!</h1>
       <div data-testid="loginForm" className="login-form">
-        <h2>Build login form here</h2>
+        <form>
+          <label htmlFor='username'>Username</label>
+          <input
+            id='username'
+            name='username'
+            type='username'
+            value={formValues.username}
+            onChange={handleChange}
+            />
+            <label htmlFor='password'>Password</label>
+            <input
+              id='password'
+              name='password'
+              type='password'
+              value={formValues.password}
+              onChange={handleChange}
+              />
+        </form>
       </div>
 
       <p id="error" className="error">{error}</p>
