@@ -11,6 +11,7 @@ const BubblePage = () => {
 
   const toggleEdit = () => {
     fetchColorService().then(data => {
+      console.log(data)
       setEditing(data);
     })
     
@@ -23,7 +24,7 @@ const BubblePage = () => {
   const deleteColor = (colorToDelete) => {
     setColors(colorToDelete)
   };
-
+  
   return (
     <div className="container">
       <ColorList colors={colors} editing={editing} toggleEdit={toggleEdit} saveEdit={saveEdit} deleteColor={deleteColor}/>

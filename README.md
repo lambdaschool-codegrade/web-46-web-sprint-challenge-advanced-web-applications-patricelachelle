@@ -86,6 +86,17 @@ Your finished project must include all of the following requirements. **Unlike o
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers to the questions within `interview_answers.md` file. These will not be counted as a part of your sprint score but will be helpful for preparing you for your endorsement interview, and enhancing overall understanding.
 
 1. Explain what a token is used for.
+
+Tokens are strings of cryptic text issued by the server which can be stored on the client-side using local storage or session storage.  The server tells when a token is issued and also reads the token and make decisions for data transfer based on the client's permissions. 
+
 2. What steps can you take in your web apps to keep your data secure?
+
+In web apps protected routes can be used that will only render with authentication. An example is when a user log into an app the request is sent with the username and password to the server.  The server then checks the credentials against the database and if the user can be authenticated it will will return a token. This token allows two layers of protection to be added to the app which are protected routes and authentication headers sent with the API call. 
+
 3. Describe how web servers work.
+
+Web servers can refer to both hardware or software with both of them working together at times. In reference to hardware a web server is a computer that stores web server software and a website's component data. The server connects to the internet and supports physical data interchange with other devices connected to the web. In reference to software a web server includes several parts that control how users access data. This software will be an HTTP server that understands URLs and HTTP. This HTTP server can be accessed through the domain names of the websites it stores and then then delivers the content of these websites to the user. 
+
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+CRUD breaks down to create, read, update, and delete. This interacts with APIs/Servers by using update or the 'U' in CRUD which equals to PUT which stands for update. This allows a change to a resource's information. PUT works like POST by taking in a body object and identifies the data that needs to be updated. The DELETE method is the 'D' in CRUD and is used to delete or destroy data that lives on the server away from the webpage. DELETE is initiated by sending some identifying information on the URL parameter along with a requested URL string. The string and the information from the URL to be deleted needs to match. 
