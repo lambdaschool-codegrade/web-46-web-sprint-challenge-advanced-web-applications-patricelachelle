@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
+import { useHistory } from 'react-router'
 
-const Login = () => {
+const initialValues = { username: '', password: ''}
+
+function Login() {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
 
-  const error = "";
+  const { push } = useHistory();
+  const [formValues, setFormValues] = useState(initialValues)
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+    .post(`http://localhost:5000/api/login`, formValues)
+    .then((response) => {
+      window.localStorage.setItem('token', response.data.payload);
+    })
+    .catch((err) => console.log(err))
+  }
+
+  const error = useState("");
   //replace with error state
 
   return (
